@@ -16,13 +16,13 @@ require (
 	github.com/spf13/viper v1.7.1
 	github.com/stretchr/testify v1.7.0
 	github.com/zeebo/admission/v3 v3.0.3
-	github.com/zeebo/errs v1.2.2
+	github.com/zeebo/errs v1.3.0
 	github.com/zeebo/structs v1.0.2
 	go.uber.org/zap v1.14.1
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 	gopkg.in/yaml.v2 v2.4.0
-	storj.io/common v0.0.0-20220216094301-b27f3c9d69e1
-	storj.io/drpc v0.0.29
+	storj.io/common v0.0.0-20220518091716-ec9c16f58d50
+	storj.io/drpc v0.0.30
 	storj.io/monkit-jaeger v0.0.0-20220131130547-dc4cb5a0d97a
 )
 
