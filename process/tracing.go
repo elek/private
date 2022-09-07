@@ -8,6 +8,7 @@ import (
 	"flag"
 	"os"
 	"path/filepath"
+	"storj.io/common/rpc/rpctracing"
 
 	"github.com/spacemonkeygo/monkit/v3"
 	"go.uber.org/zap"
@@ -87,7 +88,10 @@ func initTracing(ctx context.Context, log *zap.Logger, r *monkit.Registry, insta
 	if err != nil {
 		return nil, nil, err
 	}
-	cancel = jaeger.RegisterJaeger(r, collector, jaeger.Options{Fraction: *tracingSamplingRate})
+	cancel = jaeger.RegisterJaeger(r, collector, jaeger.Options{
+		Fraction: *tracingSamplingRate,
+		Excluded: rpctracing.IsExcluded,
+	})
 	return collector, cancel, nil
 }
 

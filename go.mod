@@ -73,3 +73,7 @@ require (
 	gopkg.in/ini.v1 v1.51.0 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
 )
+
+replace storj.io/common => github.com/elek/common v0.0.0-20220907105927-9148065d91d8
+
+replace storj.io/monkit-jaeger => github.com/elek/monkit-jaeger v0.0.0-20220907103802-59bc54fc4f1c
