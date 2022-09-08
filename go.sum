@@ -71,8 +71,8 @@ github.com/dgryski/go-sip13 v0.0.0-20181026042036-e10d5fee7954/go.mod h1:vAd38F8
 github.com/dustin/go-humanize v1.0.0/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
 github.com/elek/common v0.0.0-20220908090632-03da7032bd0e h1:2F/blpYLCY+xhOc6DK6GhOSXzTsnU6TNOGo6P6WaPqA=
 github.com/elek/common v0.0.0-20220908090632-03da7032bd0e/go.mod h1:+gF7jbVvpjVIVHhK+EJFhfPbudX395lnPq/dKkj/Qys=
-github.com/elek/monkit-jaeger v0.0.0-20220907124257-b7ea296adce0 h1:wT9oP9bdSzp1NEUIpwJ9f0K/ldxPV8WLgeZ3nFjm9fo=
-github.com/elek/monkit-jaeger v0.0.0-20220907124257-b7ea296adce0/go.mod h1:iK+dmHZZXQlW7ahKdNSOo+raMk5BDL2wbD62FIeXLWs=
+github.com/elek/monkit-jaeger v0.0.0-20220908091259-4ab249b0770d h1:YDYqRpKd+/DzLX8SzZd3sWdBb37ZH/x6b2HNZ2AZxCE=
+github.com/elek/monkit-jaeger v0.0.0-20220908091259-4ab249b0770d/go.mod h1:iK+dmHZZXQlW7ahKdNSOo+raMk5BDL2wbD62FIeXLWs=
 github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.mod h1:YTl/9mNaCwkRvm6d1a2C3ymFceY/DCBVvsKhRF0iEA4=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=

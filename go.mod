@@ -76,4 +76,4 @@ require (
 
 replace storj.io/common => github.com/elek/common v0.0.0-20220908090632-03da7032bd0e
 
-replace storj.io/monkit-jaeger => github.com/elek/monkit-jaeger v0.0.0-20220907124257-b7ea296adce0
+replace storj.io/monkit-jaeger => github.com/elek/monkit-jaeger v0.0.0-20220908091259-4ab249b0770d
