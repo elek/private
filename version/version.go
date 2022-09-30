@@ -18,6 +18,7 @@ import (
 
 	"github.com/blang/semver"
 	"github.com/zeebo/errs"
+	"go.uber.org/zap"
 
 	"storj.io/common/pb"
 	"storj.io/common/storj"
@@ -37,6 +38,7 @@ var (
 	buildRelease    string // true/false
 
 	// Build is a struct containing all relevant build information associated with the binary.
+	// deprecated: please use GetInfo() which may get information from build metadata
 	Build Info
 )
 
@@ -49,6 +51,7 @@ type Info struct {
 	CommitHash string    `json:"commitHash,omitempty"`
 	Version    SemVer    `json:"version"`
 	Release    bool      `json:"release,omitempty"`
+	Modified   bool      `json:"modified,omitempty"`
 }
 
 // SemVer represents a semantic version.
@@ -228,6 +231,40 @@ func (info Info) Proto() (*pb.NodeVersion, error) {
 		Timestamp:  info.Timestamp,
 		Release:    info.Release,
 	}, nil
+}
+
+// Print returns with new line separated, printable information for humans.
+func (info Info) Print() (out string) {
+	if info.Release {
+		out += fmt.Sprintln("Release build")
+	} else {
+		out += fmt.Sprintln("Development build")
+	}
+
+	if !info.Version.IsZero() {
+		out += fmt.Sprintln("Version:", info.Version.String())
+	}
+	if !info.Timestamp.IsZero() {
+		out += fmt.Sprintln("Build timestamp:", info.Timestamp.Format(time.RFC822))
+	}
+	if info.CommitHash != "" {
+		out += fmt.Sprintln("Git commit:", info.CommitHash)
+	}
+	if info.Modified {
+		out += fmt.Sprintln("Modified (dirty): true")
+	}
+	return out
+}
+
+func (info Info) Log(logger func(msg string, fields ...zap.Field)) {
+	fields := []zap.Field{
+		zap.Stringer("Version", info.Version.Version),
+		zap.String("Commit Hash", info.CommitHash),
+		zap.Stringer("Build Timestamp", info.Timestamp),
+		zap.Bool("Release Build", info.Release),
+		zap.Bool("Modified", info.Modified),
+	}
+	logger("Version info", fields...)
 }
 
 // PercentageToCursor calculates the cursor value for the given percentage of nodes which should update.
