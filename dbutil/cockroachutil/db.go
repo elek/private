@@ -9,6 +9,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"net/url"
+	"os"
 	"strings"
 	"sync"
 	"time"
@@ -60,6 +61,9 @@ func OpenUnique(ctx context.Context, connStr string, schemaPrefix string) (db *d
 	}
 
 	cleanup := func(cleanupDB tagsql.DB) error {
+		if os.Getenv("STORJ_TEST_COCKROACH_NOCLEANUP") == "true" {
+			return nil
+		}
 		ctx := context2.WithoutCancellation(ctx)
 
 		// HACKFIX: Set upper time limit for dropping the database.
